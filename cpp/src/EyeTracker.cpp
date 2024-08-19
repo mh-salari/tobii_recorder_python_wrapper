@@ -57,7 +57,6 @@ EyeTracker::EyeTracker(float w, float h, float off, const std::string& lic)
 void EyeTracker::start() {
   if (isLicenseValid()) {
     isRecording = true;
-    data.clear();
   } else {
     throw std::runtime_error("Cannot start: Invalid or expired license");
   }
