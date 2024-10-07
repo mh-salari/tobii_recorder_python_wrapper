@@ -2,7 +2,7 @@
  * Filename:     eyetracker_wrapper.cpp
  * Author:       Mohammadhossein Salari
  * Email:        mohammadhossein.salari@gmail.com
- * Last Modified: 2024/08/19
+ * Last Modified: 2024/10/05
  * Description:  Python binding for the EyeTracker class using pybind11.
  *               Provides a Python interface to interact with the Tobii
  *               Eye Trackers functionality implemented in C++.
@@ -24,6 +24,7 @@ PYBIND11_MODULE(tobii, m) {
       .def("getData", &EyeTracker::getData)
       .def("update", &EyeTracker::update)
       .def("isLicenseValid", &EyeTracker::isLicenseValid)
+      .def("clearDataBuffer", &EyeTracker::clearDataBuffer)
       .def("getFormattedData", [](const EyeTracker& et) {
         auto data = et.getData();
         py::list formatted_data;

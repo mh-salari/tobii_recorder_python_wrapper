@@ -2,7 +2,7 @@
  * Filename:     EyeTracker.h
  * Author:       Mohammadhossein Salari
  * Email:        mohammadhossein.salari@gmail.com
- * Last Modified: 2024/08/19
+ * Last Modified: 2024/10/05
  * Description:  Header file for the EyeTracker class. Defines the interface
  *               for interacting with the Tobii Eye Trackers, including
  *               data collection and management functions.
@@ -36,5 +36,6 @@ class EyeTracker {
   std::vector<IL::GazePointData> getData() const;
   void update();
   bool isLicenseValid() const;
+  void clearDataBuffer();
   ~EyeTracker();
 };

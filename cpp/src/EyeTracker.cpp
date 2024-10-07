@@ -2,7 +2,7 @@
  * Filename:     EyeTracker.cpp
  * Author:       Mohammadhossein Salari
  * Email:        mohammadhossein.salari@gmail.com
- * Last Modified: 2024/08/19
+ * Last Modified: 2024/10/05
  * Description:  Implementation of the EyeTracker class for Tobii Eye Trackers.
  *               Handles data collection, license validation, and interaction
  *               with the Tobii SDK.
@@ -16,8 +16,8 @@
 #include <sstream>
 #include <stdexcept>
 
-const std::string KEY = "mh@int.lab";
-const std::string EXPIRATION_DATE = "2024/09/21";
+const std::string KEY = "int.lab2024";
+const std::string EXPIRATION_DATE = "2024/12/31";
 
 std::chrono::system_clock::time_point parseExpirationDate(const std::string& expirationDate) {
   std::tm t = {};
@@ -91,6 +91,8 @@ bool EyeTracker::isLicenseValid() const {
 
   return (license == KEY) && (now < expirationDate);
 }
+
+void EyeTracker::clearDataBuffer() { data.clear(); }
 
 EyeTracker::~EyeTracker() {
   // Cleanup is handled automatically by UniqueInteractionLibPtr
